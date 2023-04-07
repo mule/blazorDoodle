@@ -21,9 +21,10 @@
     string currentPrompt = "";
     List<string> replies = new List<string>();
     
-    private void Send()
+    private async void Send()
     {
-        replies.Add(currentPrompt);
+        var response = await ChatGptService.GetResponseAsync(currentPrompt);
+        replies.Add(response);
         currentPrompt = String.Empty;
     }
     
